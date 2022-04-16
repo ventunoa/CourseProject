@@ -11,23 +11,23 @@ package ca.sheridancollege.project;
  *
  * @author dancye
  */
-public abstract class Card {
+public class Card {
     //default modifier for child classes
-	public enum Suit{
-            SPADES, CLUBS, HEARTS, DIAMONDS
-        }
+	
         
-        private static final Suit[] Suits = Suit.values();
-        public enum Value {
-             TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING, ACE
-        }
-        private static final Value[] values = Value.values();
-    /**
-     * Students should implement this method for their specific children classes
-     *
-     * @return a String representation of a card. Could be an UNO card, a regular playing card etc.
-     */
-    @Override
-    public abstract String toString();
-
+    private Value value;
+    private Suit suit;
+    
+//Gives each card a suit and value
+    public Card(Suit suit, Value value){
+        this.suit = suit;
+        this.value = value;
+    }
+    //Making value retrievable
+    public Value getValue(){
+            return this.value;
+    }
+    public String toString(){
+        return this.value.toString() +" of "+ this.suit.toString();
+    }
 }
